@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Arish Singh</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fbf9f7;
+      color: #333;
+      scroll-behavior:smooth;
+    }
+
+    header {
+      background-color: #beb3a6;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-box {
+      background: #fff;
+      border-radius: 50px;
+      box-shadow: 0 16px 29px rgba(0, 15, 10, 1);
+      padding: 60px;
+      max-width: 2000px;
+      width: 90%;
+      min-height: 70vh;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .nav-bar h2 {
+      color: #7b4d11;
+      font-weight: 800;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-bar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.8s;
+    }
+
+    .nav-bar ul li a:hover {
+      color: #a97d43;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      flex: 1 1 50%;
+      padding: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .hero-text h1 span {
+      color: #7b4d11;
+      font-size: 56px;
+    }
+
+    .hero-text h2 {
+      margin-top: 20px;
+      color: #7b4d11;
+      font-size: 24px;
+    }
+
+    #typing-text {
+      border-right: 2px solid #7b4d11;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .hero-text p {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #7b4d11;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #7b4d11;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero-img {
+      flex: 1 1 40%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .shourya-intro {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .avatar {
+      text-align: center;
+    }
+
+    .avatar img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid #7b4d11;
+    }
+
+    .intro {
+      padding: 20px;
+    }
+
+    .greeting {
+      background: #d9c5ff;
+      color: #7b4d11;
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      height: 80px;
+      background: linear-gradient(to bottom, #fefefe, #eddeca);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .grid-3 .box {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .grid-3 .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(223, 130, 8, 0.3);
+    }
+
+    .contact, .softwares {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .softwares img {
+      height: 30px;
+      margin: 10px;
+    }
+
+    .content-section {
+      background: #f4f4f4;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .content-grid {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+      justify-content: center;
+    }
+
+    .content-item {
+      flex: 1 1 150px;
+      margin: 20px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #999;
+      font-size: 14px;
+    }
+    .avatar {
+  display: flex;
+  gap: 180px; /* Adjust spacing as needed */
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 50px; /* optional: set a fixed size */
+  height: 80px;
+  border-radius: 50%; /* optional: makes it round */
+  object-fit: cover;
+}
+.box {
+    position: relative;
+    animation: float 1s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+  }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero-box" data-aos="zoom-in">
+      <div class="nav-bar">
+        <h2>Portfolio</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Hello, It's Me <br><span>Arish Singh</span></h1>
+          <h2>And I'm <span id="typing-text"></span></h2>
+          <p>i'd rather be a sprout , because it can keep growing and getting bigger , while a tree is just stuck , waiting for time to go by</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/arish.talks" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/arish-singh-63a5b732a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <a href="your-cv-link.pdf" class="btn">Download CV</a>
+        </div>
+        <div class="hero-img">
+          <img src="Korean girl.jpg" alt="Profile" height="400px" >
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="shourya-intro" data-aos="fade-up">
+    <h2>Let’s go <span style="color: #b29559;">with Ariii</span></h2>
+  </section>
+
+  <div class="avatar">
+    <img src="ggg.jpg" alt="Avatar" class="avatar-img">
+    <img src="oooo.jpg" alt="Avatar" class="avatar-img">
+    <img src="mmmmm.jpg" alt="Avatar" class="avatar-img">
+  </div>
+  
+    <div class="intro">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="greeting">♥ yours</div>
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arish Singh</h2>
+      <p>&nbsp;&nbsp;I am Arish Singh, a B.Tech student in AI & Blockchain at ITM University, Gujarat, who loves to handle multiple things at the same time — such as freelancing as a MERN stack developer, video editor, content creator, transcriber, and social media manager.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Skills Section -->
+  <section class="shourya-intro" data-aos="fade-up">
+    <h2>My <span style="color: #d39925;">Skills</span></h2>
+    <p>Skills aren’t just tools — they’re the bridge between ideas and impact.</p>
+  </section>
+
+  <section class="grid-3" id="skills">
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="nnn.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>HTML, CSS, JS</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="kkkkkkk.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>React</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="cccc.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>NodeJS</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="How to Make a Simple Image Slider With HTML, CSS….jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Express JS</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="vvvvvvvv.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>MySQL & MongoDB</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="GitHub.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Git/GitHub</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="Bootstrap Icon | Solid | Standard | Download on….jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Bootstrap / Tailwind</h3>
+      <p>Web Designer</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="Programming Tutorials and Source Code Examples.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3> Java</h3>
+      <p>Web Designer</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="B756C175-264B-4D87-902B-FD9962325FAD.jpeg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Video Editing</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="xxx.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Designer</h3>
+      <p>Newbie</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="Stenographer Sticker.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>Stenographer</h3>
+      <p>Intermediate</p>
+    </div>
+    <div class="box" data-aos="fade-up">
+      <div class="box" data-aos="fade-up"><img src="zzz.jpg" alt="Project 1" height="100px" width = "100px"><p</p></div>
+      <h3>API Handling</h3>
+      <p>Intermediate</p>
+    </div>
+    
+  
+  </section>
+  
+
+  <div class="divider"></div>
+
+  <!-- Projects Section -->
+  <section class="shourya-intro" data-aos="fade-up">
+    <h2>My <span style="color: #7b4d11;">Projects</span></h2>
+    <p>Real-world projects that helped me grow faster than any tutorial could.</p>
+  </section>
+
+  <section class="grid-3" id="projects">
+    <div class="box" data-aos="fade-up"><img src="o.jpg" alt="Project 1" height="200px" width = "200px"><p>Landing Page for Kai</p></div>
+    <div class="box" data-aos="fade-up"><img src="h.jpg" alt="Project 2" height="200px" width = "200px"><p> SEWA Website</p></div>
+    <div class="box" data-aos="fade-up"><img src="m.jpg" alt="Project 3" height="200px" width = "200px"><p> Spark Tech</p></div>
+    <div class="box" data-aos="fade-up"><img src="j.jpg" alt="Project 4"height="200px" width = "200px"><p> Sudoku game by Amazon Q</p></div>
+    <div class="box" data-aos="fade-up"><img src="b.jpeg" alt="Project 5"height="200px" width = "200px"><p>  Modified design of spodify </p></div>
+    <div class="box" data-aos="fade-up"><img src="Trip back home.jpg" alt="Project 6"height="200px" width = "200px"><p> Modified design of flipcart </p></div>
+    <div class="box" data-aos="fade-up"><img src="llll.jpg" alt="Project 6"height="200px" width = "200px"><p> techno-pixel  </p></div>
+    <div class="box" data-aos="fade-up"><img src="ttt.jpg" alt="Project 6"height="200px" width = "200px"><p>   lunix project </p></div>
+    <div class="box" data-aos="fade-up"><img src="pppp.jpg" alt="Project 6"height="200px" width = "200px"><p>  portflio for clients  </p></div>
+
+</section>
+
+  
+
+  <footer>&copy; 2025 Arish Singh. All rights reserved.</footer>
+
+  <!-- AOS & Typing Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+  <script>
+    const typingPhrases = ["a Developer", "a Content creator", "a frontend designer", "a Freelancer"];
+    let typingIndex = 0;
+    let charIndex = 0;
+    let typingElement = document.getElementById("typing-text");
+
+    function type() {
+      if (charIndex < typingPhrases[typingIndex].length) {
+        typingElement.textContent += typingPhrases[typingIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typingElement.textContent = typingPhrases[typingIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        typingIndex = (typingIndex + 1) % typingPhrases.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typingPhrases.length) setTimeout(type, 500);
+    });
+  </script>
+
+</body>
+</html>
